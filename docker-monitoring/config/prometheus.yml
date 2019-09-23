@@ -1,0 +1,17 @@
+scrape_configs:
+  - job_name: 'prometheus'
+    scrape_interval: 1m
+    static_configs:
+      - targets: ['localhost:9090']
+
+  - job_name: 'grafana'
+    scrape_interval: 1m
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['157.179.8.104:3000']
+
+  - job_name: 'middleware-service'
+    scrape_interval: 1m
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: ['157.179.8.104:31001']
